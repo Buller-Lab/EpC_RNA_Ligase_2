@@ -1,0 +1,41 @@
+Protein Sequence Pairwise Identity Analysis Report
+Generated on: 2026-05-12 14:20:38
+
+Input FASTA file: rLI1_orthologs.fasta
+Number of protein sequences: 23
+Total amino acid residues: 8723
+
+SEQUENCE LENGTH STATISTICS
+Min length: 365 aa
+Max length: 390 aa
+Mean length: 379.26 aa
+Median length: 380.00 aa
+Standard deviation: 6.45 aa
+Skewness: -0.3510
+Kurtosis: -0.5698
+
+PAIRWISE IDENTITY STATISTICS (off-diagonal pairs: 253)
+Min identity: 16.41%
+Max identity: 95.19%
+Mean identity: 46.25%
+Median identity: 48.45%
+Standard deviation: 11.37%
+Skewness: -0.6221
+Kurtosis: 2.7314
+
+Threshold analysis:
+Pairs >30% identity: 231 (91.3%)
+Pairs >50% identity: 84 (33.2%)
+Pairs >70% identity: 4 (1.6%)
+Pairs >90% identity: 1 (0.4%)
+
+OUTPUT FILES GENERATED
+- identity_matrix.xlsx          : Complete pairwise % identity matrix (Excel)
+- sequence_identity_heatmap.png : Heatmap with Blues colormap
+- sequence_length_distribution.png : Histogram + KDE of sequence lengths
+- phylogenetic_dendrogram.png   : UPGMA hierarchical clustering tree (distance-based)
+- description.txt               : This full analysis report
+
+All computations used global Needleman-Wunsch alignment with match=1, mismatch=0.
+Identity % = (identical residues / alignment length) x 100.
+Phylogenetic tree constructed via average-linkage (UPGMA) on (100 - identity) distances.
