@@ -1,0 +1,21 @@
+name: rnalig
+channels:
+  - https://conda.rosettacommons.org
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib-base
+  - seaborn
+  - biopython
+  - openpyxl
+  - mafft
+  - mmseqs2
+  - clustalo
+  # MD post-analysis (scripts/identify_top100_frames.py, scripts/calculate_binding_energy.py)
+  - mdtraj
+  - pyemma
+  - pyrosetta   # from the RosettaCommons channel above; requires accepting their license

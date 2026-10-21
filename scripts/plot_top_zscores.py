@@ -11,6 +11,16 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from Bio import SeqIO
 
+# Publication style: Arial, palette #E4E8F0 -> #4B6087, #262626 for text and lines.
+PALETTE = ["#E4E8F0", "#BFC9DB", "#8094B7", "#657DA7", "#4B6087"]
+INK = "#262626"
+STYLE_RC = {
+    "font.family": "Arial",
+    "svg.fonttype": "none", "pdf.fonttype": 42, "ps.fonttype": 42,
+    "text.color": INK, "axes.labelcolor": INK, "axes.edgecolor": INK,
+    "xtick.color": INK, "ytick.color": INK, "lines.color": INK, "patch.edgecolor": INK,
+}
+
 def parse_args():
     parser = argparse.ArgumentParser(
         description="Plot top 10 coevolving residues mapped to a reference FASTA sequence."
@@ -92,17 +102,18 @@ def main():
     full_height = max(7.0, n_bars * cell_size + 2.2)
     fig_height = full_height / 1.25
 
+    # Set the theme before creating the figure so Arial/INK apply to all text.
+    sns.set_theme(style="white", font_scale=1.0, rc=STYLE_RC)
     fig, ax = plt.subplots(figsize=(fig_width, fig_height), facecolor="white")
-    sns.set_theme(style="white", font_scale=1.0)
 
-    bar_color = "#89b3d0" 
+    bar_color = PALETTE[2]
     x_positions = np.arange(n_bars)
 
     bars = ax.bar(
         x_positions,
         top_10["Z_Score"],
         color=bar_color,
-        edgecolor="#404040",
+        edgecolor=INK,
         linewidth=0.8
     )
 
@@ -117,7 +128,7 @@ def main():
     ax.spines["bottom"].set_linewidth(0.8)
 
     ax.set_xticks(x_positions)
-    ax.set_xticklabels([f"$\\bf{{{label}}}$" for label in top_10["Residue"]], rotation=45, ha="right")
+    ax.set_xticklabels(top_10["Residue"], rotation=45, ha="right", fontweight="bold")
 
     ax.tick_params(axis='x', pad=5, labelsize=11)
     ax.tick_params(axis='y', pad=3, labelsize=10.5)

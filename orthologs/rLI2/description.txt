@@ -1,39 +1,39 @@
 Protein Sequence Pairwise Identity Analysis Report
-Generated on: 2026-05-12 14:18:37
+Generated on: 2026-10-09 17:34:15
 
 Input FASTA file: rLI2_orthologs.fasta
-Number of protein sequences: 31
-Total amino acid residues: 10348
+Number of protein sequences: 30
+Total amino acid residues: 10024
 
 SEQUENCE LENGTH STATISTICS
-Min length: 324 aa
+Min length: 328 aa
 Max length: 336 aa
-Mean length: 333.81 aa
+Mean length: 334.13 aa
 Median length: 335.00 aa
-Standard deviation: 2.33 aa
-Skewness: -2.8113
-Kurtosis: 8.3993
+Standard deviation: 1.52 aa
+Skewness: -2.2123
+Kurtosis: 6.2960
 
-PAIRWISE IDENTITY STATISTICS (off-diagonal pairs: 465)
+PAIRWISE IDENTITY STATISTICS (off-diagonal pairs: 435)
 Min identity: 49.40%
 Max identity: 98.51%
-Mean identity: 63.59%
-Median identity: 61.54%
-Standard deviation: 9.65%
-Skewness: 1.5111
-Kurtosis: 2.4255
+Mean identity: 63.43%
+Median identity: 61.24%
+Standard deviation: 9.60%
+Skewness: 1.5473
+Kurtosis: 2.5730
 
 Threshold analysis:
-Pairs >30% identity: 465 (100.0%)
-Pairs >50% identity: 460 (98.9%)
-Pairs >70% identity: 76 (16.3%)
-Pairs >90% identity: 16 (3.4%)
+Pairs >30% identity: 435 (100.0%)
+Pairs >50% identity: 430 (98.9%)
+Pairs >70% identity: 69 (15.9%)
+Pairs >90% identity: 14 (3.2%)
 
 OUTPUT FILES GENERATED
 - identity_matrix.xlsx          : Complete pairwise % identity matrix (Excel)
-- sequence_identity_heatmap.png : Heatmap with Blues colormap
-- sequence_length_distribution.png : Histogram + KDE of sequence lengths
-- phylogenetic_dendrogram.png   : UPGMA hierarchical clustering tree (distance-based)
+- sequence_identity_heatmap.png/.svg : Heatmap with publication blue colormap
+- sequence_length_distribution.png/.svg : Histogram + KDE of sequence lengths
+- phylogenetic_dendrogram.png/.svg   : UPGMA hierarchical clustering tree (distance-based)
 - description.txt               : This full analysis report
 
 All computations used global Needleman-Wunsch alignment with match=1, mismatch=0.

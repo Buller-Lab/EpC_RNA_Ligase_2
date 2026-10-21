@@ -8,15 +8,18 @@ from matplotlib.colors import LinearSegmentedColormap
 from Bio import AlignIO
 import os
 
-mpl.rcParams["font.family"] = "Arial"
-mpl.rcParams["svg.fonttype"] = "none"
-mpl.rcParams["pdf.fonttype"] = 42
-mpl.rcParams["ps.fonttype"] = 42
+# Publication style: Arial, palette #E4E8F0 -> #4B6087, #262626 for text and lines.
+PALETTE = ["#E4E8F0", "#BFC9DB", "#8094B7", "#657DA7", "#4B6087"]
+INK = "#262626"
+STYLE_RC = {
+    "font.family": "Arial",
+    "svg.fonttype": "none", "pdf.fonttype": 42, "ps.fonttype": 42,
+    "text.color": INK, "axes.labelcolor": INK, "axes.edgecolor": INK,
+    "xtick.color": INK, "ytick.color": INK, "lines.color": INK, "patch.edgecolor": INK,
+}
+mpl.rcParams.update(STYLE_RC)
 
-custom_cmap = LinearSegmentedColormap.from_list(
-    "white_blue",
-    ["#FFFFFF", "#89B3D0", "#4D8BD0", "#1C3A5E"]
-)
+custom_cmap = LinearSegmentedColormap.from_list("publication_blue", PALETTE)
 
 def get_alignment_column_indices(aln, ref_id):
     ref_row = None

@@ -7,6 +7,16 @@ import pandas as pd
 import seaborn as sns
 from matplotlib.patches import Patch
 
+# Publication style: Arial, palette #E4E8F0 -> #4B6087, #262626 for text and lines.
+PALETTE = ["#E4E8F0", "#BFC9DB", "#8094B7", "#657DA7", "#4B6087"]
+INK = "#262626"
+STYLE_RC = {
+    "font.family": "Arial",
+    "svg.fonttype": "none", "pdf.fonttype": 42, "ps.fonttype": 42,
+    "text.color": INK, "axes.labelcolor": INK, "axes.edgecolor": INK,
+    "xtick.color": INK, "ytick.color": INK, "lines.color": INK, "patch.edgecolor": INK,
+}
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input", required=True)
 args = parser.parse_args()
@@ -71,9 +81,9 @@ final_df["Residue"] = final_df["AminoAcid"].apply(to_one_letter)
 final_df = final_df.sort_values(by="Final_Average", ascending=False).reset_index(drop=True)
 
 color_map = {
-    "conserved": "#a68cb7",
+    "conserved": "#8094b7",
     "tested": "#dfb295",
-    "consensus": "#89b3d0"
+    "consensus": "#569f85"
 }
 
 legend_labels = {
@@ -95,10 +105,11 @@ else:
     y_tick_size = 10.5
     label_size = 12
 
+# Set the theme before creating the figure so Arial/INK apply to all text.
+sns.set_theme(style="white", font_scale=1.0, rc=STYLE_RC)
 fig, ax = plt.subplots(figsize=(fig_width, fig_height), facecolor="white")
-sns.set_theme(style="white", font_scale=1.0)
 
-bar_colors = [color_map.get(annot, "#7f7f7f") for annot in final_df["Annotation"]]
+bar_colors = [color_map.get(annot, PALETTE[0]) for annot in final_df["Annotation"]]
 x_positions = np.arange(len(final_df))
 
 bars = ax.bar(
@@ -107,16 +118,16 @@ bars = ax.bar(
     yerr=final_df["Final_Stddev"],
     capsize=3,
     color=bar_colors,
-    edgecolor="#404040",
+    edgecolor=INK,
     linewidth=0.8,
-    error_kw={"ecolor": "#404040", "linewidth": 0.8}
+    error_kw={"ecolor": INK, "linewidth": 0.8}
 )
 
 consensus_indices = final_df[final_df["Annotation"] == "consensus"].index[:4]
 for idx in consensus_indices:
     val = final_df.loc[idx, "Final_Average"]
     err = final_df.loc[idx, "Final_Stddev"]
-    ax.plot(idx, val + err + 0.10, marker='*', color='#404040', markersize=7, zorder=5)
+    ax.plot(idx, val + err + 0.10, marker='*', color=INK, markersize=7, zorder=5)
 
 ax.set_ylim(0, 1.1)
 ax.set_ylabel("Contact Frequency", size=label_size, weight="bold", labelpad=12)
@@ -127,7 +138,7 @@ ax.spines["left"].set_linewidth(0.8)
 ax.spines["bottom"].set_linewidth(0.8)
 
 ax.set_xticks(x_positions)
-ax.set_xticklabels([f"$\\bf{{{label}}}$" for label in final_df["Residue"]], rotation=45, ha="right")
+ax.set_xticklabels(final_df["Residue"], rotation=45, ha="right", fontweight="bold")
 
 ax.tick_params(axis='x', pad=5, labelsize=11)
 ax.tick_params(axis='y', pad=3, labelsize=y_tick_size)
@@ -136,7 +147,7 @@ for label in ax.get_yticklabels():
     label.set_weight("bold")
 
 legend_elements = [
-    Patch(facecolor=color_map[annot], edgecolor="#404040", linewidth=0.8, label=legend_labels[annot]) 
+    Patch(facecolor=color_map[annot], edgecolor=INK, linewidth=0.8, label=legend_labels[annot]) 
     for annot in VALID_ANNOTATIONS if annot in final_df["Annotation"].unique()
 ]
 ax.legend(handles=legend_elements, loc="upper right", frameon=False, fontsize=10)

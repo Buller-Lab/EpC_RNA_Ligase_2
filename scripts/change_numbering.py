@@ -2,8 +2,8 @@ import sys
 import os
 
 if len(sys.argv) < 3:
-    print("Usage: python renumber_pdb.py <input.pdb> <offset>")
-    print("Example: python renumber_pdb.py protein.pdb 100")
+    print("Usage: python scripts/change_numbering.py <input.pdb> <offset>")
+    print("Example: python scripts/change_numbering.py molecular_analysis/MD_input_structures/28_docked.pdb 100")
     print("This script adds the offset to all residue numbers and saves the result as <input>_renumbered.pdb")
     sys.exit(1)
 
