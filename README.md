@@ -1,7 +1,6 @@
 ## This is the GitHub Repository for the publication:
 
 # Evolved RNA ligase 2 facilitates therapeutic RNA oligonucleotide manufacturing
-[![DOI](https://zenodo.org/badge/DOI/INSERT_ZENODO_DOI.svg)](https://doi.org/INSERT_ZENODO_DOI)
 
 In this repository, we provide the code and data used for the computationally guided enzyme discovery and engineering of an RNA ligase 2 from *Erwinia* phage Cronus. The computational workflows provided here supported five rounds of evolution to engineer an RNA ligase capable of assembling a 100-nt single guide RNA from two SPOS-derived 50-mers, as well as handling fully modified small interfering RNAs carrying 2’ sugar modifications.
 
@@ -18,7 +17,7 @@ Specifically, this repository contains scripts for:
 
 [3] Chaudhury, Sidhartha, et al. "PyRosetta: a script-based interface for implementing molecular modeling algorithms using Rosetta." Bioinformatics 26.5 (2010): 689-691.
 
-[4] [INSERT DFX PAPER REFERENCE CITED IN MD SIMULATIONS SECTION]
+[4] Özgen, Fatma Feyza, et al. "Biomass‐Derived Diformylxylose as a Renewable Solvent for Biocatalysis Applications." ChemSusChem 19.4 (2026): e202502273.  https://doi.org/10.1002/cssc.202502273
 
 [5] Honda Malca, Sumire, Peter Stockinger, Miquel Estévez-Gay, and Rebecca Buller. "Discovery and engineering of polymerases and ligases for the synthesis of modified nucleic acids." Current Opinion in Chemical Biology 93 (2026): 102697. https://doi.org/10.1016/j.cbpa.2026.102697
 
@@ -26,11 +25,11 @@ Specifically, this repository contains scripts for:
 
 We recommend running this code on UNIX-based systems such as Ubuntu. This repository can be downloaded to your local machine via the command:
 ```bash
-git clone https://github.com/Buller-Lab/INSERT_REPO_NAME
+git clone https://github.com/Buller-Lab/EpC_RNA_Ligase_2
 ```
 then navigate into the cloned repository with:
 ```bash
-cd INSERT_REPO_NAME
+cd EpC_RNA_Ligase_2
 ```
 
 this should only take a few seconds.
