@@ -237,4 +237,7 @@ python scripts/plot_heatmaps.py evolutionary_analysis/Top15_rLI2_orthologs/top15
 # References
 
 If you utilize this code, please cite:
-Sumire Honda Malca, Peter Stockinger, Daniela Milbredt, Nadine Duss, Michael Niklaus, David Patsch, Lisa Schelbert, Nicolas Imstepf, Kaja Stalder, Irene Marzuoli, Steven Paul Hanlon, Stefan G. Koenig, Filippo Sladojevich, Hans Iding, Serena Bisagni, and Rebecca Buller. "Evolved RNA ligase 2 facilitates therapeutic RNA oligonucleotide manufacturing." [INSERT PUBLICATION VENUE/PREPRINT SERVER, YEAR, DOI].
+Sumire Honda Malca, Peter Stockinger, Daniela Milbredt, Nadine Duss, Michael Niklaus, David Patsch, Lisa Schelbert, Nicolas Imstepf, Kaja Stalder, Nicolò Zuin Fantoni, Irene Marzuoli, Steven Paul Hanlon, Stefan G. Koenig, Filippo Sladojevich, Hans Iding, Serena Bisagni, and Rebecca Buller
+
+
+"Evolved RNA ligase 2 facilitates therapeutic RNA oligonucleotide manufacturing." (DOI to be added upon publication)
